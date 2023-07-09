@@ -17,11 +17,13 @@ pipeline {
             }
         }
 
-        stage('Run JAR') {
+        stage('Deploy to Airflow') {
             steps {
-                sh 'java -jar target/template-jar-with-dependencies.jar'
+                sh 'mv target/template-jar-with-dependencies.jar $AIRFLOW_HOME/jars'
+                sh 'mv dags/* $AIRFLOW_HOME/dags'
             }
         }
+
 
     }
 }
