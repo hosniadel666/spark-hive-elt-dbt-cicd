@@ -20,7 +20,9 @@ pipeline {
         stage('Deploy to Airflow') {
             steps {
                 sh 'mv target/template-jar-with-dependencies.jar $AIRFLOW_HOME/jars'
+                sh 'mv dbt $AIRFLOW_HOME'
                 sh 'mv dags/* $AIRFLOW_HOME/dags'
+
             }
         }
 

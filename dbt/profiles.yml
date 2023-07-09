@@ -1,0 +1,8 @@
+dbt_with_hive:
+  outputs:
+    dev:
+      type: hive
+      host: master
+      port: 10000
+      schema: default
+  target: dev
