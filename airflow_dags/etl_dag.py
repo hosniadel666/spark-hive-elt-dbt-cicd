@@ -20,10 +20,10 @@ with DAG(
 
     while_running_dbt = BashOperator(
         task_id="run_dbt",
-        bash_command="dbt run --profiles_dir $AIRFLOW_HOME/dbt --project_dir $AIRFLOW_HOME/dbt/dbt_with_hive",
+        bash_command=" dbt run --profiles-dir $AIRFLOW_HOME/dbt --project-dir $AIRFLOW_HOME/dbt/dbt_with_hive/",
     )
     after_running = EmptyOperator(
         task_id="Bye",
     )
 
-    before_running >> while_running_etl >> after_running
+    before_running >> while_running_etl >> while_running_dbt >> after_running
