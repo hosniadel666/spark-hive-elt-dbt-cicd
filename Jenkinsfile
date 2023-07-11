@@ -25,7 +25,30 @@ pipeline {
                 sh 'mv airflow_dags/* $AIRFLOW_HOME/dags'
             }
         }
+    }
+    post {
+        success {
+            mail to: "hosni.adel666@gmail.com",
+            subject: "Jenkins Build Successful: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+            body: """
+            Hello,
+                \tThe Jenkins build for ${env.JOB_NAME} [${env.BUILD_NUMBER}] was successful.
+                \tYou can view the build details and console output at ${env.BUILD_URL}
+            Thank you,
+            Jenkins
+            """
+        }
 
-
+        failure {
+            mail to: "hosni.adel666@gmail.com",
+            subject: "Jenkins Build Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+            body: """
+            Hello,
+                \tThe Jenkins build for ${env.JOB_NAME} [${env.BUILD_NUMBER}] has failed.
+                \tYou can view the build details and console output at ${env.BUILD_URL}
+            Thank you,
+            Jenkins
+            """
+        }
     }
 }
