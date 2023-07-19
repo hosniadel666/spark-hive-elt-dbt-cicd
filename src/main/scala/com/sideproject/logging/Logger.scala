@@ -1,8 +1,8 @@
 package com.sideproject.logging
 
-import org.apache.log4j.{Level, LogManager, Logger}
+import org.apache.log4j.{LogManager, Logger}
 
-object Logger{
+object Logger {
   private val log: Logger = LogManager.getLogger(getClass.getName)
 
   def info(message: String): Unit = {
@@ -16,6 +16,4 @@ object Logger{
   def error(message: String): Unit = {
     log.error(message)
   }
-
-  // Add more log levels and customization methods as needed
 }

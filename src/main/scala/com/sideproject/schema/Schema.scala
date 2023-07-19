@@ -10,7 +10,7 @@ object Schema {
       case "SessionsDownloads" => sessionDonloadSheetSchema
       case "EventSpeakers" => eventSpeakersSheetSchema
       case "SessionsSpeakers" => sessionSpeakersSheetSchema
-      case "EventSponsors" => eventSponserSheetSchema
+      case "EventSponsors" => eventSponsorSheetSchema
     }
   }
   private val eventsSheetSchema: StructType = new StructType()
@@ -70,7 +70,7 @@ object Schema {
     .add("SpeakerId", LongType, true)
     .add("SpeakerName", StringType, true)
 
-  private val eventSponserSheetSchema: StructType = new StructType()
+  private val eventSponsorSheetSchema: StructType = new StructType()
     .add("EventID", LongType, true)
     .add("SponsorID", LongType, true)
     .add("name", StringType, true)

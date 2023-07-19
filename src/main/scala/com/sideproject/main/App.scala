@@ -4,14 +4,13 @@ import com.crealytics.spark.excel.{ExcelDataFrameReader, WorkbookReader}
 import com.sideproject.logging.Logger
 import com.sideproject.schema.Schema
 import com.sideproject.spark.SparkManager
-import org.apache.log4j.Level
 import org.apache.spark.sql.SaveMode
 
 
 object App {
   def main(args: Array[String]): Unit = {
-
     Logger.info("Creating Spark Session")
+
     val sparkMngr = new SparkManager
     val spark = sparkMngr.enableHive
       .startTestingSparkSession
@@ -28,6 +27,7 @@ object App {
 
     Logger.info("Start extract and load excel sheets into Hive")
     sheetNames.zipWithIndex.foreach { case (sheet, index) => {
+
       Logger.info("%d - Start extracting sheet %s".format(index, sheet))
       val df = spark.read.excel(
         //         inferSchema = true,
@@ -35,6 +35,7 @@ object App {
         dataAddress = "'%s'!".format(sheet)
       ).schema(Schema.selectSchema(sheet))
         .load("/home/hosniadel/Documents/GitHub/spark-hive-elt-dbt-cicd/data/SQLSaturdayEventHistory.xlsx")
+
       df.show(5)
 
       Logger.info("%d - Start loading sheet %s into Hive".format(index, sheet))
