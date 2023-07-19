@@ -17,7 +17,6 @@ class SparkManager {
       .master(master_t)
       .appName(appName_t)
 
-
     if (isHiveEnable)
       sparkBuilder = sparkBuilder.enableHiveSupport()
         .config("hive.metastore.uris", hiveMetaStore_t)
@@ -27,7 +26,18 @@ class SparkManager {
     this.spark
   }
 
+  def startLocalSparkSession: SparkSession = {
+    var sparkBuilder = SparkSession.builder()
+      .master(master_t)
+      .appName(appName_t)
 
+
+    if (isHiveEnable)
+      sparkBuilder = sparkBuilder.enableHiveSupport()
+
+    this.spark = sparkBuilder.getOrCreate()
+    this.spark
+  }
   def enableHive: SparkManager = {
     this.isHiveEnable = true
     this

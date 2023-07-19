@@ -13,7 +13,7 @@ object Schema {
       case "EventSponsors" => eventSponserSheetSchema
     }
   }
-  val eventsSheetSchema: StructType = new StructType()
+  private val eventsSheetSchema: StructType = new StructType()
     .add("EventID", LongType, true)
     .add("EventName", StringType, true)
     .add("EventDate", TimestampType, true)
@@ -27,7 +27,7 @@ object Schema {
     .add("State", StringType, true)
     .add("Zipcode", StringType, true)
 
-  val eventSessionsSheetSchema: StructType = new StructType()
+  private val eventSessionsSheetSchema: StructType = new StructType()
     .add("EventID", LongType, true)
     .add("SessionID", LongType, true)
     .add("Track", StringType, true)
@@ -44,15 +44,15 @@ object Schema {
     .add("speakers", StringType, true)
     .add("LanguageDesc", StringType, true)
     .add("LanguageCode", StringType, true)
-    .add("check", BooleanType, true)
+    .add("check", IntegerType, true)
 
-  val sessionDonloadSheetSchema: StructType = new StructType()
+  private val sessionDonloadSheetSchema: StructType = new StructType()
     .add("EventID", LongType, true)
     .add("SessionID", LongType, true)
     .add("DownloadURL", StringType, true)
     .add("DownloadTitle", StringType, true)
 
-  val eventSpeakersSheetSchema: StructType = new StructType()
+  private val eventSpeakersSheetSchema: StructType = new StructType()
     .add("EventID", LongType, true)
     .add("SpeakerID", LongType, true)
     .add("Name", StringType, true)
@@ -64,13 +64,13 @@ object Schema {
     .add("imageHeight", DoubleType, true)
     .add("imageWidth", DoubleType, true)
 
-  val sessionSpeakersSheetSchema: StructType = new StructType()
+  private val sessionSpeakersSheetSchema: StructType = new StructType()
     .add("SessionID", LongType, true)
     .add("EventID", LongType, true)
     .add("SpeakerId", LongType, true)
     .add("SpeakerName", StringType, true)
 
-  val eventSponserSheetSchema: StructType = new StructType()
+  private val eventSponserSheetSchema: StructType = new StructType()
     .add("EventID", LongType, true)
     .add("SponsorID", LongType, true)
     .add("name", StringType, true)

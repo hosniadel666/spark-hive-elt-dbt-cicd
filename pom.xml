@@ -16,7 +16,6 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-yarn -->
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-yarn_${scala.version.major}</artifactId>
@@ -38,11 +37,6 @@
             <version>${spark.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming_${scala.version.major}</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.github.andyglow</groupId>
             <artifactId>typesafe-config-scala_${scala.version.major}</artifactId>
             <version>2.0.0</version>
@@ -58,12 +52,15 @@
             <artifactId>spark-excel_${scala.version.major}</artifactId>
             <version>2.4.7_0.18.7</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>template</finalName>
+        <finalName>elt</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -75,7 +72,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>sample.App</mainClass>
+                            <mainClass>com.sideproject.main.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
