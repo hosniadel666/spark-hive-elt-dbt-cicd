@@ -19,6 +19,7 @@ pipeline {
 
         stage('Deploy to Airflow') {
             steps {
+                sh 'rm $AIRFLOW_HOME/jars/*'
                 sh 'mv target/elt-jar-with-dependencies.jar $AIRFLOW_HOME/jars'
                 sh 'rm -rf $AIRFLOW_HOME/dbt'
                 sh 'mv dbt $AIRFLOW_HOME'

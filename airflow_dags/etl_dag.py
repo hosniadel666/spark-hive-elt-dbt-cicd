@@ -15,7 +15,7 @@ with DAG(
 
     while_running_etl = BashOperator(
         task_id="run_jar",
-        bash_command="java -jar $AIRFLOW_HOME/jars/template-jar-with-dependencies.jar",
+        bash_command="java -jar $AIRFLOW_HOME/jars/elt-jar-with-dependencies.jar",
     )
 
     while_running_dbt = BashOperator(
