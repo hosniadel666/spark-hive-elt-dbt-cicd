@@ -26,7 +26,7 @@ class SparkManager {
     this.spark
   }
 
-  def startLocalSparkSession: SparkSession = {
+  def startLocalSparkSession: SparkSession  = {
     var sparkBuilder = SparkSession.builder()
       .master(master_t)
       .appName(appName_t)
@@ -43,3 +43,4 @@ class SparkManager {
     this
   }
 }
+
