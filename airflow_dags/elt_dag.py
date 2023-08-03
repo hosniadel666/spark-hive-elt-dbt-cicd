@@ -5,7 +5,7 @@ from airflow.operators.empty import EmptyOperator
 
 with DAG(
         dag_id='ETL_Pipeline',
-        schedule='* * * * *',
+        schedule='0 * * * *',
         start_date=datetime(2023, 7, 2),
         catchup=False,
 ) as dag:

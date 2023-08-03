@@ -39,8 +39,8 @@ object App {
       df.show(5)
 
       Logger.info("%d - Start loading sheet %s into Hive".format(index, sheet))
-      df.write
-        .mode(SaveMode.Append)
+      df.na.drop("all").write
+        .mode(SaveMode.Overwrite)
         .saveAsTable(sheet)
       Logger.info("%d - Finish loading sheet %s into Hive".format(index, sheet))
     }
