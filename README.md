@@ -21,7 +21,7 @@ A comprehensive ELT (Extract, Load, Transformation) project using Apache Spark, 
 | Jenkins | 2.332.3 |
 | dbt | 1.3.4 |
 | dbt-hive plugin | 1.3.1 |
-1. I have used a Hadoop cluster consisting of one NameNode and three DataNodes built using Docker. The cluster includes installations of the following
+2. I have used a Hadoop cluster consisting of one NameNode and three DataNodes built using Docker. The cluster includes installations of the following
 
 | language/tool | version |
 | --- | --- |
@@ -45,11 +45,11 @@ The pipeline contains the following stages:
 
 ![Untitled](resources/Untitled%202.png)
 
-1. You can trigger the pipeline manually or using GitHub hook trigger that listen for code changes and trigger the pipeline.
+2. You can trigger the pipeline manually or using GitHub hook trigger that listen for code changes and trigger the pipeline.
 
 ![Untitled](resources/Untitled%203.png)
 
-1. I used Email notification plugin to send me email either on success or on failure to track the status of my pipeline.
+3. I used Email notification plugin to send me email either on success or on failure to track the status of my pipeline.
 
 ![Untitled](resources/Untitled%204.png)
 
@@ -67,11 +67,11 @@ The Airflow pipeline contains the following tasks:
 
 ![Untitled](resources/Untitled%206.png)
 
-1. Before loading the data into Hive, The data warehouse  is empty.
+2. Before loading the data into Hive, The data warehouse  is empty.
 
 ![Untitled](resources/Untitled%207.png)
 
-1. After loading the data into Hive.
+3. After loading the data into Hive.
 
 ![Untitled](resources/Untitled%208.png)
 
@@ -100,11 +100,11 @@ dbt_with_hive:
 
 > Hive server is up and running on port 10000
 > 
-1. The first simple model `events_2019.sql` , Filter events of year 2019
+2. The first simple model `events_2019.sql` , Filter events of year 2019
     
     ![Untitled](resources/Untitled%209.png)
     
-2. After loading the data into Hive the DBT job will be run and execute the models and save them inside the data warehouse.
+3. After loading the data into Hive the DBT job will be run and execute the models and save them inside the data warehouse.
 
 ![Untitled](resources/Untitled%2010.png)
 
